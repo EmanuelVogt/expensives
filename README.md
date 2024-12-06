@@ -32,4 +32,4 @@ Certifique-se de ter as seguintes ferramentas instaladas antes de começar:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/expensives.git
+   git clone https://github.com/seu-usuario/expensives-flutter.git
