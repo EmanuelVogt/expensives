@@ -34,6 +34,8 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Standard Blue AppBar'),
       ),
       body: const Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
               width: double.infinity,
