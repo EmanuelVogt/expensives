@@ -19,6 +19,15 @@ class MyApp extends StatelessWidget {
           foregroundColor:
               Colors.white, // Garantindo visibilidade do texto/ícones
         ),
+        inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2),
+          ),
+          labelStyle: TextStyle(color: Colors.blue),
+        ),
       ),
       home: MyHomePage(),
     );
@@ -52,7 +61,6 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Standard Blue AppBar'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(
@@ -80,7 +88,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.all(10),
                           child: Text(
-                            'R\$ ${tr.value}',
+                            'R\$${tr.value}',
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -102,6 +110,56 @@ class MyHomePage extends StatelessWidget {
                 ),
               );
             }).toList(),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Título',
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Valor',
+                      ),
+                    ),
+                    const SizedBox(height: 20), // Espaço entre campos e botão
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          // Aqui você define a ação que ocorrerá ao pressionar o botão
+                          print('Botão Enviar pressionado');
+                          // Você pode adicionar lógica para adicionar uma nova transação, por exemplo
+                        },
+                        icon: const Icon(Icons.send),
+                        label: const Text(
+                          'Salvar',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          iconColor: Colors.white,
+                          backgroundColor: Colors.blue,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 12),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)
+                          )
+                          
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
